@@ -35,11 +35,31 @@ class MyApp extends StatelessWidget {
             ),
           ],
         ),
-        body: Row(
+        body: Column(
           children: [
-            Text("First Text",style: TextStyle(fontSize: 20),),
-            SizedBox(height: 30,),
-            Text("Second Text",style: TextStyle(fontSize: 20),),
+            Text(
+              "In publishing and graphic design, Lorem ipsum is a placeholder text ",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available",
+              style: TextStyle(fontSize: 17),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Icon(Icons.thumb_up),
+                Icon(Icons.favorite),
+                Icon(Icons.comment),
+                Icon(Icons.share)
+              ],
+            )
           ],
         ),
         floatingActionButton: FloatingActionButton(
