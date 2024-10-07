@@ -1,7 +1,9 @@
-import 'package:aqsa_noor_project/asset_image.dart';
+
+
+import 'package:aqsa_noor_project/list_view_builder.dart';
 import 'package:flutter/material.dart';
 
-import 'network_image.dart';
+import 'list_tile.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: AssetsImageView()
+      home: ListViewBuilderDemo()
     );
   }
 }
