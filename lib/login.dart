@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:string_validator/string_validator.dart';
 
 class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+  LoginView({super.key});
+
+  TextEditingController emailController = TextEditingController();
+  TextEditingController pwdController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +16,7 @@ class LoginView extends StatelessWidget {
       body: Column(
         children: [
           TextField(
-            keyboardType: TextInputType.phone,
+            controller: emailController,
             maxLines: 1,
             decoration: InputDecoration(
               label: Text("Email"),
@@ -22,6 +26,7 @@ class LoginView extends StatelessWidget {
             ),
           ),
           TextField(
+            controller: pwdController,
             keyboardType: TextInputType.phone,
             obscureText: true,
             decoration: InputDecoration(
@@ -34,7 +39,31 @@ class LoginView extends StatelessWidget {
           SizedBox(
             height: 40,
           ),
-          ElevatedButton(onPressed: () {}, child: Text("Login"))
+          ElevatedButton(
+              onPressed: () {
+                if (emailController.text.isEmpty) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text("Email cannot be empty.")));
+                  return;
+                }
+                if (!isEmail(emailController.text)) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text("Kindly provide valid email")));
+                  return;
+                }
+                if (pwdController.text.isEmpty) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text("Password cannot be empty.")));
+                  return;
+                }
+                if (pwdController.text.length < 6) {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content:
+                          Text("Password should be 6 or more characters.")));
+                  return;
+                }
+              },
+              child: Text("Login"))
         ],
       ),
     );
