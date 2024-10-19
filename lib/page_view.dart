@@ -17,7 +17,7 @@ class PageViewDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Page View Demo"),
+        title: const Text("Page View Demo"),
       ),
       body: Column(
         children: [
@@ -30,9 +30,12 @@ class PageViewDemo extends StatelessWidget {
                   return Column(
                     children: [
                       Image.asset(onBoardingList[i].image.toString()),
+                      const SizedBox(
+                        height: 50,
+                      ),
                       Text(
                         onBoardingList[i].title.toString(),
-                        style: TextStyle(fontSize: 30),
+                        style: const TextStyle(fontSize: 30),
                       )
                     ],
                   );
@@ -41,9 +44,9 @@ class PageViewDemo extends StatelessWidget {
           SmoothPageIndicator(
               controller: controller, // PageController
               count: onBoardingList.length,
-              effect: JumpingDotEffect(), // your preferred effect
+              effect: const ExpandingDotsEffect(), // your preferred effect
               onDotClicked: (index) {}),
-          SizedBox(
+          const SizedBox(
             height: 80,
           )
         ],
