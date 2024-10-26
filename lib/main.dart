@@ -8,6 +8,8 @@ import 'package:aqsa_noor_project/login.dart';
 import 'package:aqsa_noor_project/multiple_selection_view.dart';
 import 'package:aqsa_noor_project/page_view.dart';
 import 'package:aqsa_noor_project/single_selection_view.dart';
+import 'package:aqsa_noor_project/tabbar.dart';
+import 'package:aqsa_noor_project/task.dart';
 import 'package:flutter/material.dart';
 
 import 'list_tile.dart';
@@ -22,7 +24,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: BottomBarView()
+      home: TabbarViewDemo()
     );
   }
 }
+
+
+
+
