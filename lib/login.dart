@@ -13,58 +13,63 @@ class LoginView extends StatelessWidget {
       appBar: AppBar(
         title: Text("Login"),
       ),
-      body: Column(
-        children: [
-          TextField(
-            controller: emailController,
-            maxLines: 1,
-            decoration: InputDecoration(
-              label: Text("Email"),
-              hintText: 'test@mail.com',
-              prefixIcon: Icon(Icons.email),
-              suffixIcon: Icon(Icons.email),
+      body: Padding(
+        padding: const EdgeInsets.only(left: 40, right: 3, top: 60, bottom: 10),
+        child: Column(
+          children: [
+            Text("Top"),
+            TextField(
+              controller: emailController,
+              maxLines: 1,
+              decoration: InputDecoration(
+                label: Text("Email"),
+                hintText: 'test@mail.com',
+                prefixIcon: Icon(Icons.email),
+                suffixIcon: Icon(Icons.email),
+              ),
             ),
-          ),
-          TextField(
-            controller: pwdController,
-            keyboardType: TextInputType.phone,
-            obscureText: true,
-            decoration: InputDecoration(
-              label: Text("Password"),
-              hintText: 'Password should be 6 or more characters.',
-              prefixIcon: Icon(Icons.lock),
-              suffixIcon: Icon(Icons.visibility),
+            Text("Bottom"),
+            TextField(
+              controller: pwdController,
+              keyboardType: TextInputType.phone,
+              obscureText: true,
+              decoration: InputDecoration(
+                label: Text("Password"),
+                hintText: 'Password should be 6 or more characters.',
+                prefixIcon: Icon(Icons.lock),
+                suffixIcon: Icon(Icons.visibility),
+              ),
             ),
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          ElevatedButton(
-              onPressed: () {
-                if (emailController.text.isEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Email cannot be empty.")));
-                  return;
-                }
-                if (!isEmail(emailController.text)) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Kindly provide valid email")));
-                  return;
-                }
-                if (pwdController.text.isEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Password cannot be empty.")));
-                  return;
-                }
-                if (pwdController.text.length < 6) {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content:
-                          Text("Password should be 6 or more characters.")));
-                  return;
-                }
-              },
-              child: Text("Login"))
-        ],
+            SizedBox(
+              height: 40,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  if (emailController.text.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Email cannot be empty.")));
+                    return;
+                  }
+                  if (!isEmail(emailController.text)) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Kindly provide valid email")));
+                    return;
+                  }
+                  if (pwdController.text.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Password cannot be empty.")));
+                    return;
+                  }
+                  if (pwdController.text.length < 6) {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content:
+                            Text("Password should be 6 or more characters.")));
+                    return;
+                  }
+                },
+                child: Text("Login"))
+          ],
+        ),
       ),
     );
   }
