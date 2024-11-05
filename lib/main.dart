@@ -10,6 +10,7 @@ import 'package:aqsa_noor_project/multiple_selection_view.dart';
 import 'package:aqsa_noor_project/page_view.dart';
 import 'package:aqsa_noor_project/provider/name.dart';
 import 'package:aqsa_noor_project/screen_a.dart';
+import 'package:aqsa_noor_project/search_view.dart';
 import 'package:aqsa_noor_project/single_selection_view.dart';
 import 'package:aqsa_noor_project/switch.dart';
 import 'package:aqsa_noor_project/tabbar.dart';
@@ -30,6 +31,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: SwitchDemo());
+    return MaterialApp(home: SearchView());
   }
 }
